@@ -1,0 +1,50 @@
+{
+  "api_key": {
+    "description": "阿里云百炼 API Key",
+    "type": "string",
+    "hint": "在 https://bailian.console.aliyun.com/?tab=model#/api-key 获取北京地域的 API Key",
+    "default": ""
+  },
+  "workspace_id": {
+    "description": "阿里云百炼 Workspace ID",
+    "type": "string",
+    "hint": "在百炼控制台 -> 我的工作空间 中查看 Workspace ID",
+    "default": ""
+  },
+  "model": {
+    "description": "TTS 模型",
+    "type": "string",
+    "hint": "可选: qwen-audio-3.0-tts-flash (快速) 或 qwen-audio-3.0-tts-plus (高品质)。支持情感标签和指令控制",
+    "default": "qwen-audio-3.0-tts-flash"
+  },
+  "voice": {
+    "description": "系统音色",
+    "type": "string",
+    "hint": "音色 ID，如 longanhuan_v3.6、longanyang_v3.6 等。完整列表见 https://help.aliyun.com/zh/model-studio/qwen-audio-tts-voice-list",
+    "default": "longanhuan_v3.6"
+  },
+  "instruction": {
+    "description": "指令控制（可选）",
+    "type": "text",
+    "hint": "通过自然语言控制语音表现力，例如：'语速较快，带有明显的上扬语调，适合介绍时尚产品。' 留空则关闭指令控制",
+    "default": ""
+  },
+  "format": {
+    "description": "音频格式",
+    "type": "string",
+    "hint": "输出音频格式，可选 wav / mp3 / pcm",
+    "default": "wav"
+  },
+  "sample_rate": {
+    "description": "采样率",
+    "type": "int",
+    "hint": "音频采样率，常见值: 16000, 24000, 44100。建议 24000",
+    "default": 24000
+  },
+  "tts_prompt": {
+    "description": "TTS 触发提示词",
+    "type": "text",
+    "hint": "注入到 LLM 系统提示词中，教 AI 如何使用 <tts> 标签。支持 $ 分隔符",
+    "default": "当你想要发送语音时，使用<tts></tts>标签包裹需要转语音的文本，语音可放在句中的任意位置。\n示例一：情绪的潮汐，只是为了让你感受更完整的自己$静下来，深呼吸...<tts>你看，整个宇宙都在温柔地拥抱着你</tts>\n示例二：睡前故事？<tts>夜晚的草地很安静，有一只小兔子……</tts>故事讲完了$晚安，好梦\n\n【情感标签】你可以在 <tts> 文本中使用情感标签控制语音表现：\n- [sad]悲伤 [excited]兴奋 [angry]愤怒 [serious]严肃 [whispers]耳语\n- [laughing]大笑 [sighing]叹息 [giggles]咯咯笑 [cough]咳嗽\n- [very slowly]非常慢 [very fast]非常快\n示例：<tts>[excited]太棒了！[laughing]我们一起出去玩吧！</tts>"
+  }
+}
